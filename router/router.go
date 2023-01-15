@@ -54,7 +54,7 @@ func (c Router) GetRoute() (route entities.Route, err error) {
 }
 
 // // kong.Router.GetService() returns the current service entity.
-// // The request will be targetted to this upstream service.
+// // The request will be targeted to this upstream service.
 func (c Router) GetService() (service entities.Service, err error) {
 	out := new(kong_plugin_protocol.Service)
 	err = c.Ask(`kong.router.get_service`, nil, out)
@@ -63,20 +63,20 @@ func (c Router) GetService() (service entities.Service, err error) {
 	}
 
 	service = entities.Service{
-		Id:                out.Id,
-		CreatedAt:         int(out.CreatedAt),
-		UpdatedAt:         int(out.UpdatedAt),
-		Name:              out.Name,
-		Retries:           int(out.Retries),
-		Protocol:          out.Protocol,
-		Host:              out.Host,
-		Port:              int(out.Port),
-		Path:              out.Path,
-		ConnectTimeout:    int(out.ConnectTimeout),
-		WriteTimeout:      int(out.WriteTimeout),
-		ReadTimeout:       int(out.ReadTimeout),
-		Tags:              out.Tags,
-// 		ClientCertificate: entities.CertificateKey{Id: out.ClientCertificate.Id},
+		Id:             out.Id,
+		CreatedAt:      int(out.CreatedAt),
+		UpdatedAt:      int(out.UpdatedAt),
+		Name:           out.Name,
+		Retries:        int(out.Retries),
+		Protocol:       out.Protocol,
+		Host:           out.Host,
+		Port:           int(out.Port),
+		Path:           out.Path,
+		ConnectTimeout: int(out.ConnectTimeout),
+		WriteTimeout:   int(out.WriteTimeout),
+		ReadTimeout:    int(out.ReadTimeout),
+		Tags:           out.Tags,
+		// 		ClientCertificate: entities.CertificateKey{Id: out.ClientCertificate.Id},
 	}
 	return
 }

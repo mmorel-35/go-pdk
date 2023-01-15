@@ -3,11 +3,12 @@ package client
 import (
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/Kong/go-pdk/bridge"
 	"github.com/Kong/go-pdk/bridge/bridgetest"
 	"github.com/Kong/go-pdk/entities"
 	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
-	"github.com/stretchr/testify/assert"
 )
 
 func mockClient(t *testing.T, s []bridgetest.MockStep) Client {
@@ -54,7 +55,8 @@ func TestGetForwardedPort(t *testing.T) {
 
 func TestGetCredential(t *testing.T) {
 	c := mockClient(t, []bridgetest.MockStep{
-		{"kong.client.get_credential", nil,
+		{
+			"kong.client.get_credential", nil,
 			&kong_plugin_protocol.AuthenticatedCredential{Id: "000:00", ConsumerId: "000:01"},
 		},
 	})
@@ -66,7 +68,8 @@ func TestGetCredential(t *testing.T) {
 
 func TestLoadConsumer(t *testing.T) {
 	c := mockClient(t, []bridgetest.MockStep{
-		{"kong.client.load_consumer",
+		{
+			"kong.client.load_consumer",
 			&kong_plugin_protocol.ConsumerSpec{Id: "001", ByUsername: false},
 			&kong_plugin_protocol.Consumer{Id: "001", Username: "Jon Doe"},
 		},

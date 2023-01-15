@@ -7,9 +7,10 @@ import (
 	"log"
 	"net"
 
+	"google.golang.org/protobuf/proto"
+
 	"github.com/Kong/go-pdk"
 	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
-	"google.golang.org/protobuf/proto"
 )
 
 func servePb(conn net.Conn, rh *rpcHandler) {

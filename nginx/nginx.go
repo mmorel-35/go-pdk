@@ -4,9 +4,10 @@ Access Nginx APIs.
 package nginx
 
 import (
+	"google.golang.org/protobuf/types/known/structpb"
+
 	"github.com/Kong/go-pdk/bridge"
 	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
-	"google.golang.org/protobuf/types/known/structpb"
 )
 
 // Holds this module's functions.  Accessible as `kong.Nginx`
@@ -68,7 +69,7 @@ func (n Nginx) GetCtxInt(k string) (int, error) {
 	return int(out.GetNumberValue()), nil
 }
 
-// kong.Nginx.ReqStartTime() returns the curent request's start time
+// kong.Nginx.ReqStartTime() returns the current request's start time
 // as a floating-point number of seconds.  Equivalent to `ngx.req.start_time()`
 func (n Nginx) ReqStartTime() (float64, error) {
 	return n.AskNumber(`kong.nginx.req_start_time`, nil)

@@ -61,4 +61,3 @@ func (n Node) GetMemoryStats() (MemoryStats, error) {
 
 	return ms, nil
 }
-

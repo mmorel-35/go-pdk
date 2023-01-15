@@ -98,4 +98,3 @@ func dumpInfo(rh *rpcHandler) {
 	}
 	os.Stdout.WriteString("\n")
 }
-

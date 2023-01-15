@@ -3,10 +3,11 @@ package log
 import (
 	"testing"
 
-	"github.com/Kong/go-pdk/bridge"
-	"github.com/Kong/go-pdk/bridge/bridgetest"
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/protobuf/types/known/structpb"
+
+	"github.com/Kong/go-pdk/bridge"
+	"github.com/Kong/go-pdk/bridge/bridgetest"
 )
 
 func mockLog(t *testing.T, s []bridgetest.MockStep) Log {

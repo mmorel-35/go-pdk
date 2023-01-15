@@ -64,7 +64,7 @@ jobs:
       - name: Lint
         uses: golangci/golangci-lint-action@v3
         with:
-         args: --exclude composites
+          skip-cache: true
 
       - name: Test
         run: make test

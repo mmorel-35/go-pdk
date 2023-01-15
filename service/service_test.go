@@ -3,10 +3,11 @@ package service
 import (
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/Kong/go-pdk/bridge"
 	"github.com/Kong/go-pdk/bridge/bridgetest"
 	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestService(t *testing.T) {

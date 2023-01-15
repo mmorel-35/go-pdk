@@ -4,9 +4,10 @@ Manipulation of the request to the Service.
 package request
 
 import (
+	"google.golang.org/protobuf/types/known/structpb"
+
 	"github.com/Kong/go-pdk/bridge"
 	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
-	"google.golang.org/protobuf/types/known/structpb"
 )
 
 // Holds this module's functions.  Accessible as `kong.ServiceRequest`
@@ -91,7 +92,7 @@ func (r Request) SetHeader(name string, value string) error {
 // kong.ServiceRequest.AddHeader() adds a request header with the given value
 // to the request to the Service. Unlike kong.ServiceRequest.SetHeader(),
 // this function will not remove any existing headers with the same name.
-// Instead, several occurences of the header will be present in the request.
+// Instead, several occurrences of the header will be present in the request.
 // The order in which headers are added is retained.
 func (r Request) AddHeader(name string, value string) error {
 	arg := kong_plugin_protocol.KV{

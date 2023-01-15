@@ -51,6 +51,9 @@ import (
 	"strings"
 	"testing"
 
+	"google.golang.org/protobuf/proto"
+	"google.golang.org/protobuf/types/known/structpb"
+
 	"github.com/Kong/go-pdk"
 	"github.com/Kong/go-pdk/bridge"
 	"github.com/Kong/go-pdk/bridge/bridgetest"
@@ -63,13 +66,10 @@ import (
 	"github.com/Kong/go-pdk/request"
 	"github.com/Kong/go-pdk/response"
 	"github.com/Kong/go-pdk/router"
+	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
 	"github.com/Kong/go-pdk/service"
 	service_request "github.com/Kong/go-pdk/service/request"
 	service_response "github.com/Kong/go-pdk/service/response"
-
-	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/types/known/structpb"
 )
 
 // The Request type represents the request received from the client

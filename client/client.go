@@ -9,10 +9,9 @@ package client
 import (
 	"fmt"
 
-	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
-
 	"github.com/Kong/go-pdk/bridge"
 	"github.com/Kong/go-pdk/entities"
+	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
 )
 
 // Holds this module's functions.  Accessible as `kong.Client`.

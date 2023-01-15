@@ -41,7 +41,6 @@ func getHandlerNames(t reflect.Type) []string {
 }
 
 func newRpcHandler(constructor func() interface{}, version string, priority int) *rpcHandler {
-
 	constructorType := reflect.TypeOf(constructor)
 	if constructorType == nil {
 		log.Printf("nil constructor")

@@ -1,0 +1,31 @@
+issues:
+  exclude:
+    - composite
+  max-same-issues: 10
+
+linters:
+  enable:
+    - gofmt
+    - gofumpt
+    - gomodguard
+    - misspell
+    - nolintlint
+
+linters-settings:
+  gci:
+    sections:
+      - standard
+      - default
+      - prefix(github.com/Kong/go-pdk)
+    skip-generated: true
+  gofumpt:
+    module-path: github.com/Kong/go-pdk
+  gomodguard:
+    blocked:
+      modules:
+        - io/ioutil:
+            recommendations:
+              - io
+              - os
+output:
+  sort-results: true

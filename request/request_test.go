@@ -3,10 +3,11 @@ package request
 import (
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/Kong/go-pdk/bridge"
 	"github.com/Kong/go-pdk/bridge/bridgetest"
 	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
-	"github.com/stretchr/testify/assert"
 )
 
 func mockRequest(t *testing.T, s []bridgetest.MockStep) Request {
@@ -14,7 +15,6 @@ func mockRequest(t *testing.T, s []bridgetest.MockStep) Request {
 }
 
 func TestGetInfos(t *testing.T) {
-
 	q, err := bridge.WrapHeaders(map[string][]string{
 		"ref":   {"wayback"},
 		"trail": {"faint"},
@@ -103,8 +103,8 @@ this is the content`
 	ret_q, err := request.GetQuery(30)
 	assert.NoError(t, err)
 	assert.Equal(t, map[string][]string{
-		"ref":   []string{"wayback"},
-		"trail": []string{"faint"},
+		"ref":   {"wayback"},
+		"trail": {"faint"},
 	}, ret_q)
 
 	ret, err = request.GetHeader("Host")
@@ -114,8 +114,8 @@ this is the content`
 	ret_q, err = request.GetHeaders(30)
 	assert.NoError(t, err)
 	assert.Equal(t, map[string][]string{
-		"Host":         []string{"example.com"},
-		"X-Two-Things": []string{"first", "second"},
+		"Host":         {"example.com"},
+		"X-Two-Things": {"first", "second"},
 	}, ret_q)
 
 	ret_b, err := request.GetRawBody()

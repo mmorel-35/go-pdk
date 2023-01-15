@@ -12,9 +12,10 @@ before sending it back to the client.
 package response
 
 import (
+	"google.golang.org/protobuf/types/known/structpb"
+
 	"github.com/Kong/go-pdk/bridge"
 	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
-	"google.golang.org/protobuf/types/known/structpb"
 )
 
 // Holds this module's functions.  Accessible as `kong.Response`

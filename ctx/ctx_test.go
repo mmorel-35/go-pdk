@@ -3,11 +3,12 @@ package ctx
 import (
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+	"google.golang.org/protobuf/types/known/structpb"
+
 	"github.com/Kong/go-pdk/bridge"
 	"github.com/Kong/go-pdk/bridge/bridgetest"
 	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
-	"github.com/stretchr/testify/assert"
-	"google.golang.org/protobuf/types/known/structpb"
 )
 
 func mockCtx(t *testing.T, s []bridgetest.MockStep) Ctx {

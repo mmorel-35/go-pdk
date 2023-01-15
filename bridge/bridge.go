@@ -10,9 +10,10 @@ import (
 	"log"
 	"net"
 
-	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/known/structpb"
+
+	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
 )
 
 type PdkBridge struct {

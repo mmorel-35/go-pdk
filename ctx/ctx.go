@@ -15,25 +15,29 @@ Usage:
 // (it executes before B), and plugin A is a Go plugin:
 
 // plugin A PluginA.go
-func (conf Config) Access(kong *pdk.PDK) {
-	err := kong.Ctx.SetShared("hello world")
-	if err != nil {
-		kong.Log.Err(err)
-		return
+
+	func (conf Config) Access(kong *pdk.PDK) {
+		err := kong.Ctx.SetShared("hello world")
+		if err != nil {
+			kong.Log.Err(err)
+			return
+		}
 	}
-}
 
 // plugin B handler.lua
 function plugin_b_handler:access(conf)
-  kong.log(kong.ctx.shared.foo) // "hello world"
+
+	kong.log(kong.ctx.shared.foo) // "hello world"
+
 end
 */
 package ctx
 
 import (
+	"google.golang.org/protobuf/types/known/structpb"
+
 	"github.com/Kong/go-pdk/bridge"
 	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
-	"google.golang.org/protobuf/types/known/structpb"
 )
 
 // Holds this module's functions.  Accessible as `kong.Ctx`

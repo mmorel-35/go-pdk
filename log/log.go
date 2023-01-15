@@ -4,8 +4,9 @@ Write to log file.
 package log
 
 import (
-	"github.com/Kong/go-pdk/bridge"
 	"google.golang.org/protobuf/types/known/structpb"
+
+	"github.com/Kong/go-pdk/bridge"
 )
 
 // Holds this module's functions.  Accessible as `kong.Log`

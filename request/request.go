@@ -7,11 +7,12 @@ package request
 
 import (
 	"errors"
-	"io/ioutil" //nolint:all // TODO: update to remove deprecated dependency
+	"os"
+
+	"google.golang.org/protobuf/types/known/structpb"
 
 	"github.com/Kong/go-pdk/bridge"
 	"github.com/Kong/go-pdk/server/kong_plugin_protocol"
-	"google.golang.org/protobuf/types/known/structpb"
 )
 
 // Holds this module's functions.  Accessible as `kong.Request`
@@ -218,7 +219,7 @@ func (r Request) GetRawBody() ([]byte, error) {
 		return x.Content, nil
 
 	case *kong_plugin_protocol.RawBodyResult_BodyFilepath:
-		return ioutil.ReadFile(x.BodyFilepath)
+		return os.ReadFile(x.BodyFilepath)
 
 	case *kong_plugin_protocol.RawBodyResult_Error:
 		return nil, errors.New(x.Error)
@@ -229,8 +230,6 @@ func (r Request) GetRawBody() ([]byte, error) {
 }
 
 // kong.Request.GetUriCaptures() returns the catured URI fragements.
-//
-//
 func (r Request) GetUriCaptures() ([][]byte, map[string][]byte, error) {
 	out := new(kong_plugin_protocol.UriCapturesResult)
 	err := r.Ask("kong.request.get_uri_captures", nil, out)
